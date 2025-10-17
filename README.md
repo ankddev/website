@@ -13,7 +13,7 @@
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ankddev/ankddev.github.io.git website
+git clone https://github.com/ankddev/website
 cd website
 ```
 
