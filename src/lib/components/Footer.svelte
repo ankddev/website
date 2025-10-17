@@ -30,6 +30,6 @@
 		<span class="md:block hidden"> • </span>
 		<Link target="_blank" href="https://github.com/ankddev/dotfiles">My dotfiles</Link>
 		<span class="md:block hidden"> • </span>
-		<Link target="_blank" href="https://github.com/ankddev/ankddev.github.io">Source code</Link>
+		<Link target="_blank" href="https://github.com/ankddev/website">Source code</Link>
 	</div>
 </footer>

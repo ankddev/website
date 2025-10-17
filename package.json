@@ -22,7 +22,7 @@
 		"@iconify-json/simple-icons": "^1.2.54",
 		"@iconify-json/tabler": "^1.2.23",
 		"@shikijs/transformers": "^3.13.0",
-		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/adapter-vercel": "^6.0.0",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
 		"@types/node": "^22",

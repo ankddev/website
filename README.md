@@ -67,7 +67,7 @@ The project uses Shiki for syntax highlighting with custom transformers:
 - Highlight notation: `// [!code highlight]`
 - Highlight notation for errors and warnings: `// [!code highlight error]` and `// [!code highlight warning]`
 
-## 🎨 Styling
+## Styling
 
 The project uses UnoCSS with:
 - Custom presets for icons and styling
@@ -75,7 +75,7 @@ The project uses UnoCSS with:
 - Responsive design utilities
 - Variable fonts
 
-## 🔧 Configuration
+## Configuration
 
 Key configuration files:
 - `svelte.config.js` - SvelteKit and MDsveX configuration
@@ -83,9 +83,19 @@ Key configuration files:
 - `vite.config.ts` - Vite build configuration
 - `tsconfig.json` - TypeScript configuration
 
-## 📦 Deployment
+## Deployment
 
-The site is automatically deployed to GH Pages on push to the main branch. The deployment configuration is handled by the static adapter in `svelte.config.js`.
+The site is automatically deployed to Vercel on push to the main branch. The deployment configuration is handled by the Vercel adapter in `svelte.config.js`.
+## Manual Deployment
+To deploy manually:
+
+```bash
+# Build the project:
+bun run build
+# Deploy to Vercel:
+vercel --prod
+```
+
 
 ## Contributing
 
