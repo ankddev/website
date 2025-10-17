@@ -1,0 +1,52 @@
+/* Stylesheet with configuration for headers (titles) */
+
+h1 {
+	--at-apply: text-4xl font-bold;
+}
+
+h2 {
+	--at-apply: text-3xl font-semibold;
+}
+
+h3 {
+	--at-apply: text-2xl font-semibold;
+}
+
+h4 {
+	--at-apply: text-xl font-medium;
+}
+
+h5 {
+	--at-apply: text-lg font-medium;
+}
+
+h6 {
+	--at-apply: text-base font-normal;
+}
+
+h1,
+h2,
+h3 {
+	scroll-margin-top: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family:
+		'Lexend Variable',
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+}
