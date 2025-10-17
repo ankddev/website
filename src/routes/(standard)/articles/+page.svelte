@@ -34,7 +34,7 @@
 
 <main class="mt-10">
 	<div class="text-xs text-driftwood-900/50">Search posts or tags</div>
-	<Input bind:value={query} class="w-full" placeholder="Type something..." />
+	<Input id="search" bind:value={query} class="w-full" placeholder="Type something..." />
 	{#if posts != null && posts.length === 0}
 		<div bind:this={notFoundRef} class="text-center text-driftwood-900/70 mt-8">
 			Nothing was found!
@@ -42,7 +42,7 @@
 	{:else}
 		<div class="flex items-center gap-8 flex-wrap mt-4">
 			{#each posts as post, index (post.slug + index)}
-				<div class="opacity-0 w-full" bind:this={postsRef[index]}>
+				<div id="post-{post}" class="opacity-0 w-full" bind:this={postsRef[index]}>
 					<ListingArticle {...post}>{post.title}</ListingArticle>
 				</div>
 			{/each}

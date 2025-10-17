@@ -48,25 +48,25 @@
 	let projects = sortProjectsByRolePriority(PROJECTS);
 </script>
 
-<div class="opacity-0" bind:this={greetingRef}>
+<div id="greeting" class="opacity-0" bind:this={greetingRef}>
 	<Greeting class="mt-12" />
 </div>
 
-<div bind:this={skillsRef} class="flex opacity-0 flex-col gap-2 mt-12">
+<div id="skills" bind:this={skillsRef} class="flex opacity-0 flex-col gap-2 mt-12">
 	<ListingHeader>Skills</ListingHeader>
 	{#each SKILLS as skillGroup (skillGroup.category)}
 		<SkillGroup {skillGroup} />
 	{/each}
 </div>
 
-<div bind:this={articlesRef} class="flex opacity-0 flex-col gap-2 mt-12">
+<div id="articles" bind:this={articlesRef} class="flex opacity-0 flex-col gap-2 mt-12">
 	<ListingHeader counter={amount} href="/articles">Articles</ListingHeader>
 	{#each posts as post (post.slug)}
 		<ListingArticle {...post}>{post.title}</ListingArticle>
 	{/each}
 </div>
 
-<div bind:this={projectsRef} class="flex opacity-0 flex-col gap-1 mt-12">
+<div id="projects" bind:this={projectsRef} class="flex opacity-0 flex-col gap-1 mt-12">
 	<ListingHeader description="Some of projects that I develop, maintain or have founded"
 		>Projects</ListingHeader
 	>
@@ -83,7 +83,7 @@
 	</div>
 </div>
 
-<div bind:this={faqRef} class="flex opacity-0 flex-col gap-1 mt-12">
+<div id="faq" bind:this={faqRef} class="flex opacity-0 flex-col gap-1 mt-12">
 	<ListingHeader description="Some intereseting things about me in format of questions and answers"
 		>FAQ</ListingHeader
 	>
