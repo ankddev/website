@@ -11,10 +11,10 @@
 	let posts = $state<Article[] | null>(data.posts);
 	let query = $state(data.q || '');
 	let postsRef: HTMLElement[] = $state([]);
-	let notFoundRef: HTMLElement | null = $state(null);
+	let countRef: HTMLElement | null = $state(null);
 
 	$effect(() => {
-		animate([...postsRef, notFoundRef], {
+		animate([...postsRef, countRef], {
 			...fadeUp,
 			delay: (_, i) => i * 100
 		});
@@ -35,11 +35,15 @@
 <main class="mt-10">
 	<div class="text-xs text-driftwood-900/50">Search posts or tags</div>
 	<Input id="search" bind:value={query} class="w-full" placeholder="Type something..." />
-	{#if posts != null && posts.length === 0}
-		<div bind:this={notFoundRef} class="text-center text-driftwood-900/70 mt-8">
+	<div bind:this={countRef} class="text-center text-driftwood-900/70 mt-2">
+		{#if posts != null && posts.length !== 0}
+			Found {posts.length} {posts.length == 1 ? 'post' : 'posts'}
+		{:else}
 			Nothing was found!
-		</div>
-	{:else}
+		{/if}
+	</div>
+
+	{#if posts == null || posts.length !== 0}
 		<div class="flex items-center gap-8 flex-wrap mt-4">
 			{#each posts as post, index (post.slug + index)}
 				<div id="post-{post}" class="opacity-0 w-full" bind:this={postsRef[index]}>
