@@ -76,7 +76,7 @@
 				onclick={copy}
 				aria-label="copy"
 				class={[
-					'absolute z-10 cursor-pointer  transition-colors top-0 right-0 p-2 rounded-md',
+					'copy hidden absolute z-10 cursor-pointer transition-colors top-0 right-0 p-2 rounded-md',
 					flags.includes('error')
 						? 'bg-rose-100 hover:bg-rose-200'
 						: 'bg-frangipani-50 hover:bg-driftwood-200/30'
@@ -111,6 +111,10 @@
 			&:hover :not(.focused).line {
 				filter: none;
 			}
+		}
+
+		&:hover .copy {
+			display: initial;
 		}
 	}
 </style>
