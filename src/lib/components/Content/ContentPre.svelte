@@ -107,48 +107,9 @@
 			& :not(.focused).line {
 				filter: blur(2px);
 			}
-		}
 
-		:global(pre.has-highlighted) {
-			& .line.highlighted.warning {
-				--at-apply: relative inline-block w-full transition-colors;
-				--at-apply: bg-yellow/50;
-			}
-
-			& .line.highlighted.error {
-				--at-apply: relative inline-block w-full transition-colors;
-				--at-apply: bg-red/50;
-			}
-
-			& .line.highlighted {
-				--at-apply: relative inline-block w-full transition-colors;
-				--at-apply: bg-frangipani-100/80;
-			}
-		}
-
-		:global(pre.has-diff) {
-			& .diff {
-				--at-apply: relative inline-block w-full transition-colors;
-			}
-
-			& .diff::after {
-				--at-apply: absolute right-2 top-1/2 -translate-y-1/2;
-			}
-
-			& .diff.remove {
-				--at-apply: opacity-60 bg-rose-100;
-			}
-
-			& .diff.remove::after {
-				--at-apply: content-[ '-'];
-			}
-
-			& .diff.add {
-				--at-apply: bg-sky-100;
-			}
-
-			& .diff.add::after {
-				--at-apply: content-[ '+'];
+			&:hover :not(.focused).line {
+				filter: none;
 			}
 		}
 	}

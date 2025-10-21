@@ -3,13 +3,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import { join } from 'node:path';
 import { highlighter } from './src/lib/data/highlighter.js';
-import {
-	transformerNotationFocus,
-	transformerNotationDiff,
-	transformerNotationHighlight,
-	transformerNotationErrorLevel,
-	transformerMetaHighlight
-} from '@shikijs/transformers';
+import { transformerNotationFocus } from '@shikijs/transformers';
 
 const ContentLayout = join(
 	import.meta.dirname,
@@ -33,13 +27,7 @@ const config = {
 						highlighter.codeToHtml(code, {
 							lang,
 							theme: 'vitesse-light',
-							transformers: [
-								transformerNotationFocus(),
-								transformerNotationDiff(),
-								transformerNotationHighlight(),
-								transformerNotationErrorLevel(),
-								transformerMetaHighlight()
-							]
+							transformers: [transformerNotationFocus()]
 						})
 					);
 

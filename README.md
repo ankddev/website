@@ -61,11 +61,8 @@ Your article content here with support for:
 
 ### Code Highlighting
 
-The project uses Shiki for syntax highlighting with custom transformers:
+The project uses Shiki for syntax highlighting with custom transformer:
 - Focus notation: `// [!code focus]`
-- Diff notation: `// [!code ++]` and `// [!code --]`
-- Highlight notation: `// [!code highlight]`
-- Highlight notation for errors and warnings: `// [!code highlight error]` and `// [!code highlight warning]`
 
 ## Styling
 
