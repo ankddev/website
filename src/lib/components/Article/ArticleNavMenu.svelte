@@ -15,6 +15,10 @@
 		if (e.target === e.currentTarget) onclose();
 	};
 
+	const handleKeyDown = (e: KeyboardEvent) => {
+		if (e.key === 'Escape') onclose();
+	};
+
 	const links = [
 		{
 			title: 'Home',
@@ -38,7 +42,7 @@
 >
 	<div class="mx-auto h-full flex flex-col max-w-[854px]">
 		<div class="flex justify-between items-center">
-			<ContentH2 nospy class="!mt-0">Tables of content</ContentH2>
+			<ContentH2 nospy class="mt-0!">Tables of content</ContentH2>
 			<div class="flex gap-2">
 				{#each links as link (link.uri)}
 					<a
@@ -73,6 +77,8 @@
 		</ul>
 	</div>
 </div>
+
+<svelte:window onkeydown={handleKeyDown} />
 
 <style>
 	.menu {
