@@ -44,6 +44,16 @@
 	<meta name="keywords" content={meta.keywords} />
 </svelte:head>
 
+<noscript>
+	<div class="flex flex-col items-center justify-center bg-frangipani-900 text-driftwood-100">
+		<div class="text-center">
+			<h3>
+				You have JavaScript disabled, but unfortunately this website won't fully work without it!
+			</h3>
+		</div>
+	</div>
+</noscript>
+
 <svelte:window onkeydown={handleKeyDown} />
 
 {@render children()}
