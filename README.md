@@ -12,17 +12,20 @@
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/ankddev/website
 cd website
 ```
 
 2. Install dependencies:
+
 ```bash
 bun install
 ```
 
 3. Start the development server:
+
 ```bash
 bun run dev
 ```
@@ -54,6 +57,7 @@ tags:
 ---
 
 Your article content here with support for:
+
 - Markdown syntax
 - Embedded Svelte components
 - Code blocks with syntax highlighting
@@ -62,11 +66,13 @@ Your article content here with support for:
 ### Code Highlighting
 
 The project uses Shiki for syntax highlighting with custom transformer:
+
 - Focus notation: `// [!code focus]`
 
 ## Styling
 
 The project uses UnoCSS with:
+
 - Custom presets for icons and styling
 - CSS variables for theming
 - Responsive design utilities
@@ -75,6 +81,7 @@ The project uses UnoCSS with:
 ## Configuration
 
 Key configuration files:
+
 - `svelte.config.js` - SvelteKit and MDsveX configuration
 - `uno.config.ts` - UnoCSS configuration
 - `vite.config.ts` - Vite build configuration
@@ -83,7 +90,9 @@ Key configuration files:
 ## Deployment
 
 The site is automatically deployed to Vercel on push to the main branch. The deployment configuration is handled by the Vercel adapter in `svelte.config.js`.
+
 ## Manual Deployment
+
 To deploy manually:
 
 ```bash
@@ -92,7 +101,6 @@ bun run build
 # Deploy to Vercel:
 vercel --prod
 ```
-
 
 ## Contributing
 
