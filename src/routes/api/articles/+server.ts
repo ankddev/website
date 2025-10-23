@@ -34,7 +34,8 @@ export const GET: RequestHandler = async ({ url }) => {
 			return (
 				item.title.toLowerCase().includes(search) ||
 				item.description.toLowerCase().includes(search) ||
-				item.tags?.some((tag) => tag.toLowerCase().includes(search))
+				item.tags?.some((tag) => tag.toLowerCase().includes(search)) ||
+				item.slug.toLowerCase().includes(search)
 			);
 		});
 	}
