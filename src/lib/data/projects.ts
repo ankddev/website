@@ -70,5 +70,11 @@ export const PROJECTS: Project[] = [
 		description: 'Lightweight cross-platform CLI tool for working with environment variables.',
 		roles: [ProjectRole.Developer],
 		repo: 'https://github.com/ankddev/envfetch/'
+	},
+	{
+		name: '/dev/ankddev',
+		description: 'This website :)',
+		roles: [ProjectRole.Developer],
+		repo: 'https://github.com/ankddev/website/'
 	}
 ];
