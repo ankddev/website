@@ -39,6 +39,7 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"shiki": "^3.13.0",
+		"super-sitemap": "^1.0.5",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.3.3",
 		"throttle-debounce": "^5.0.2",
