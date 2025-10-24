@@ -104,7 +104,7 @@
 <div bind:this={mobileNavRef} class="mobile-nav fixed flex flex-col z-25 inset-0">
 	<Backdrop
 		onclick={handleBackdropClick}
-		class="px-3 w-full grow-1 pt-14 pb-4 flex flex-col justify-between"
+		class="px-3 w-full grow pt-14 pb-4 flex flex-col justify-between"
 	>
 		<div class="flex flex-col gap-4">
 			<ContentH1 custommark nospy>Navigation</ContentH1>
@@ -117,12 +117,12 @@
 					</li>
 				{/each}
 			</ul>
-			<ul class="flex gap-2 mt-4">
+			<ul class="flex gap-2 flex-wrap mt-4">
 				{#each SOCIAL as link (link.link)}
-					<li>
-						<Link darker target="_blank" href={link.link}
-							><ContentH3 class="color-inherit" custommark nospy>{link.title}</ContentH3></Link
-						>
+					<li class="shrink-0">
+						<Link darker target="_blank" href={link.link}>
+							<ContentH3 class="color-inherit" custommark nospy>{link.title}</ContentH3>
+						</Link>
 					</li>
 				{/each}
 			</ul>
