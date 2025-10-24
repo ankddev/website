@@ -46,6 +46,6 @@ export const GET: RequestHandler = async ({ url }) => {
 
 	return json({
 		articles,
-		amount: data.amount
+		amount: articles.length
 	});
 };
