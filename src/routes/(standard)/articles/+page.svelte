@@ -34,7 +34,13 @@
 
 <main class="mt-10">
 	<div class="text-xs text-driftwood-900/50">Search posts or tags</div>
-	<Input id="search" bind:value={query} class="w-full" placeholder="Type something..." />
+	<Input
+		id="search"
+		bind:value={query}
+		role="search"
+		class="w-full"
+		placeholder="Type something..."
+	/>
 	<div bind:this={countRef} class="text-center text-driftwood-900/70 mt-2">
 		{#if posts != null && posts.length !== 0}
 			Found {posts.length} {posts.length == 1 ? 'post' : 'posts'}
