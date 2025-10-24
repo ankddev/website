@@ -54,6 +54,7 @@ date: 2024-01-15
 tags:
   - tag1
   - tag2
+pinned: false
 ---
 
 Your article content here with support for:
@@ -113,4 +114,4 @@ While this is a personal website and blog, suggestions and bug reports are welco
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is available under the [MIT License](LICENSE).
