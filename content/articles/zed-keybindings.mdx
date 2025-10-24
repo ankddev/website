@@ -26,62 +26,62 @@ Now my main editor is Zed. I have written some keybindings for it.
 I tried to create keybindings similar to [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) ones.
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-  	{
-  		title: 'Create file',
-  		keys: ['a'],
-  		action: 'project_panel::NewFile',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Create directory',
-  		keys: ['A'],
-  		action: 'project_panel::NewDirectory',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Move to trash',
-  		keys: ['d'],
-  		action: 'project_panel::Trash',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Delete',
-  		keys: ['D'],
-  		action: 'project_panel::Delete',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Rename',
-  		keys: ['r'],
-  		action: 'project_panel::Rename',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Cut',
-  		keys: ['x'],
-  		action: 'project_panel::Cut',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Copy',
-  		keys: ['c'],
-  		action: 'project_panel::Copy',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Paste',
-  		keys: ['p'],
-  		action: 'project_panel::Paste',
-      context: 'ProjectPanel && !editing'
-  	},
-    {
-  		title: 'Toggle left dock (project view)',
-  		keys: ['q'],
-  		action: 'workspace::ToggleLeftDock',
-      context: 'ProjectPanel && !editing'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Create file',
+			keys: ['a'],
+			action: 'project_panel::NewFile',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Create directory',
+			keys: ['A'],
+			action: 'project_panel::NewDirectory',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Move to trash',
+			keys: ['d'],
+			action: 'project_panel::Trash',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Delete',
+			keys: ['D'],
+			action: 'project_panel::Delete',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Rename',
+			keys: ['r'],
+			action: 'project_panel::Rename',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Cut',
+			keys: ['x'],
+			action: 'project_panel::Cut',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Copy',
+			keys: ['c'],
+			action: 'project_panel::Copy',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Paste',
+			keys: ['p'],
+			action: 'project_panel::Paste',
+			context: 'ProjectPanel && !editing'
+		},
+		{
+			title: 'Toggle left dock (project view)',
+			keys: ['q'],
+			action: 'workspace::ToggleLeftDock',
+			context: 'ProjectPanel && !editing'
+		}
 	]}
 />
 
@@ -89,20 +89,20 @@ It looks like this:
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "ProjectPanel && !editing",
-    "bindings": {
-      "a": "project_panel::NewFile",
-      "A": "project_panel::NewDirectory",
-      "d": "project_panel::Trash",
-      "D": "project_panel::Delete",
-      "r": "project_panel::Rename",
-      "x": "project_panel::Cut",
-      "c": "project_panel::Copy",
-      "p": "project_panel::Paste",
-      "q": "workspace::ToggleLeftDock"
-    }
-  }
+	{
+		"context": "ProjectPanel && !editing",
+		"bindings": {
+			"a": "project_panel::NewFile",
+			"A": "project_panel::NewDirectory",
+			"d": "project_panel::Trash",
+			"D": "project_panel::Delete",
+			"r": "project_panel::Rename",
+			"x": "project_panel::Cut",
+			"c": "project_panel::Copy",
+			"p": "project_panel::Paste",
+			"q": "workspace::ToggleLeftDock"
+		}
+	}
 ]
 ```
 
@@ -111,25 +111,25 @@ It looks like this:
 I use `Outline` in Zed frequently, it's only panel which opened 80% of my time inside editor.
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-    {
-  		title: 'Toggle focus on outline panel',
-  		keys: ['alt-o'],
-  		action: 'outline_panel::ToggleFocus',
-      context: 'Workspace'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Toggle focus on outline panel',
+			keys: ['alt-o'],
+			action: 'outline_panel::ToggleFocus',
+			context: 'Workspace'
+		}
 	]}
 />
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      "alt-o": "outline_panel::ToggleFocus"
-    }
-  }
+	{
+		"context": "Workspace",
+		"bindings": {
+			"alt-o": "outline_panel::ToggleFocus"
+		}
+	}
 ]
 ```
 
@@ -139,35 +139,32 @@ While I mainly use Git from terminal, sometimes I need fast and easy access to G
 I found this hotkey for [lazygit](https://github.com/jesseduffield/lazygit) in [Hidden Gems: Team Edition Part 1](https://zed.dev/blog/hidden-gems-team-edition-part-1) article and it's really useful!
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-    {
-  		title: 'Toggle focus on Git panel',
-  		keys: ['alt-g'],
-  		action: 'git_panel::ToggleFocus',
-      context: 'Workspace'
-  	},
-    {
-  		title: 'Open lazygit in editor',
-  		keys: ['ctrl-alt-g'],
-  		action: '[ "task::Spawn", { "task_name": "LazyGit", "reveal_target": "center" } ]',
-      context: 'Workspace'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Toggle focus on Git panel',
+			keys: ['alt-g'],
+			action: 'git_panel::ToggleFocus',
+			context: 'Workspace'
+		},
+		{
+			title: 'Open lazygit in editor',
+			keys: ['ctrl-alt-g'],
+			action: '[ "task::Spawn", { "task_name": "LazyGit", "reveal_target": "center" } ]',
+			context: 'Workspace'
+		}
 	]}
 />
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      "alt-g": "git_panel::ToggleFocus",
-      "ctrl-alt-g": [
-        "task::Spawn",
-        { "task_name": "LazyGit", "reveal_target": "center" }
-      ]
-    }
-  }
+	{
+		"context": "Workspace",
+		"bindings": {
+			"alt-g": "git_panel::ToggleFocus",
+			"ctrl-alt-g": ["task::Spawn", { "task_name": "LazyGit", "reveal_target": "center" }]
+		}
+	}
 ]
 ```
 
@@ -176,39 +173,39 @@ I found this hotkey for [lazygit](https://github.com/jesseduffield/lazygit) in [
 When I just start new Zed window or close project I want to perform some quick actions, these hotkeys help me in this!
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-    {
-  		title: 'Toggle file finder',
-  		keys: ['space', 'space'],
-  		action: 'file_finder::Toggle',
-      context: 'EmptyPane || SharedScreen'
-  	},
-    {
-  		title: 'Open recent project view',
-  		keys: ['space', 'p'],
-  		action: 'projects::OpenRecent',
-      context: 'EmptyPane || SharedScreen'
-  	},
-    {
-  		title: 'Open extensions view',
-  		keys: ['space', 'e'],
-  		action: 'zed::Extensions',
-      context: 'EmptyPane || SharedScreen'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Toggle file finder',
+			keys: ['space', 'space'],
+			action: 'file_finder::Toggle',
+			context: 'EmptyPane || SharedScreen'
+		},
+		{
+			title: 'Open recent project view',
+			keys: ['space', 'p'],
+			action: 'projects::OpenRecent',
+			context: 'EmptyPane || SharedScreen'
+		},
+		{
+			title: 'Open extensions view',
+			keys: ['space', 'e'],
+			action: 'zed::Extensions',
+			context: 'EmptyPane || SharedScreen'
+		}
 	]}
 />
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "EmptyPane || SharedScreen",
-    "bindings": {
-      "space space": "file_finder::Toggle",
-      "space p": "projects::OpenRecent",
-      "space e": "zed::Extensions"
-    }
-  }
+	{
+		"context": "EmptyPane || SharedScreen",
+		"bindings": {
+			"space space": "file_finder::Toggle",
+			"space p": "projects::OpenRecent",
+			"space e": "zed::Extensions"
+		}
+	}
 ]
 ```
 
@@ -218,39 +215,39 @@ I very like duplicating lines with `ctrl-d`, it's useful. Sometimes I also need
 to copy file name or position in it.
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-    {
-  		title: 'Duplicate line',
-  		keys: ['ctrl-d'],
-  		action: 'editor::DuplicateLineDown',
-      context: 'Editor'
-  	},
-    {
-  		title: 'Copy file name',
-  		keys: ['ctrl-shift-c'],
-  		action: 'editor::CopyFileName',
-      context: 'Editor'
-  	},
-    {
-  		title: 'Copy file location',
-  		keys: ['ctrl-shift-l'],
-  		action: 'editor::CopyFileLocation',
-      context: 'Editor'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Duplicate line',
+			keys: ['ctrl-d'],
+			action: 'editor::DuplicateLineDown',
+			context: 'Editor'
+		},
+		{
+			title: 'Copy file name',
+			keys: ['ctrl-shift-c'],
+			action: 'editor::CopyFileName',
+			context: 'Editor'
+		},
+		{
+			title: 'Copy file location',
+			keys: ['ctrl-shift-l'],
+			action: 'editor::CopyFileLocation',
+			context: 'Editor'
+		}
 	]}
 />
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-d": "editor::DuplicateLineDown",
-      "ctrl-shift-c": "editor::CopyFileName",
-      "ctrl-shift-l": "editor::CopyFileLocation"
-    }
-  }
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl-d": "editor::DuplicateLineDown",
+			"ctrl-shift-c": "editor::CopyFileName",
+			"ctrl-shift-l": "editor::CopyFileLocation"
+		}
+	}
 ]
 ```
 
@@ -260,80 +257,82 @@ I frequently (but not always) use Vim mode so I have dedicated keybinding to
 fastly toggle Vim mode.
 
 <ZedKeybindings
-  class="my-4"
-  commands={[
-    {
-  		title: 'Toggle Vim mode',
-  		keys: ['ctrl-alt-shift-v'],
-  		action: 'workspace::ToggleVimMode',
-      context: 'Workspace'
-  	},
-    {
-  		title: 'Toggle selected Git chunks',
-  		keys: ['space', 'g', 'h', 'd'],
-  		action: 'editor::ToggleSelectedDiffHunks',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Toggle inlay hints',
-  		keys: ['space', 't', 'i'],
-  		action: 'editor::ToggleInlayHints',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Toggle soft wrap',
-  		keys: ['space', 'u', 'w'],
-  		action: 'editor::ToggleSoftWrap',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Open Markdown preview',
-  		keys: ['space', 'm', 'p'],
-  		action: 'markdown::OpenPreview',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Open Markdown preview to the side',
-  		keys: ['space', 'm', 'P'],
-  		action: 'markdown::OpenPreviewToTheSide',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Deploy search',
-  		keys: ['space', 's', 'w'],
-  		action: 'pane::DeploySearch',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	},
-    {
-  		title: 'Format file',
-  		keys: ['space', 'f'],
-  		action: 'editor::Format',
-      context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
-  	}
+	class="my-4"
+	commands={[
+		{
+			title: 'Toggle Vim mode',
+			keys: ['ctrl-alt-shift-v'],
+			action: 'workspace::ToggleVimMode',
+			context: 'Workspace'
+		},
+		{
+			title: 'Toggle selected Git chunks',
+			keys: ['space', 'g', 'h', 'd'],
+			action: 'editor::ToggleSelectedDiffHunks',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Toggle inlay hints',
+			keys: ['space', 't', 'i'],
+			action: 'editor::ToggleInlayHints',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Toggle soft wrap',
+			keys: ['space', 'u', 'w'],
+			action: 'editor::ToggleSoftWrap',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Open Markdown preview',
+			keys: ['space', 'm', 'p'],
+			action: 'markdown::OpenPreview',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Open Markdown preview to the side',
+			keys: ['space', 'm', 'P'],
+			action: 'markdown::OpenPreviewToTheSide',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Deploy search',
+			keys: ['space', 's', 'w'],
+			action: 'pane::DeploySearch',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		},
+		{
+			title: 'Format file',
+			keys: ['space', 'f'],
+			action: 'editor::Format',
+			context: 'Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu'
+		}
 	]}
 />
 
 ```json filename="keymap.json"
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-alt-shift-v": "workspace::ToggleVimMode",
-    }
-  },
-  {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-    "bindings": {
-      "space g h d": "editor::ToggleSelectedDiffHunks",
-      "space t i": "editor::ToggleInlayHints",
-      "space u w": "editor::ToggleSoftWrap",
-      "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide",
-      "space s w": "pane::DeploySearch",
-      "space f": "editor::Format"
-    }
-  }
+	{
+		"context": "Workspace",
+		"bindings": {
+			"ctrl-alt-shift-v": "workspace::ToggleVimMode"
+		}
+	},
+	{
+		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+		"bindings": {
+			"space g h d": "editor::ToggleSelectedDiffHunks",
+			"space t i": "editor::ToggleInlayHints",
+			"space u w": "editor::ToggleSoftWrap",
+			"space m p": "markdown::OpenPreview",
+			"space m P": "markdown::OpenPreviewToTheSide",
+			"space s w": "pane::DeploySearch",
+			"space f": "editor::Format"
+		}
+	}
 ]
 ```
+
 ---
+
 I hope you enjoyed the article. Found mistake, typo or have feedback? Feel free to open issue/PR in [website repo](https://github.com/ankddev/website).
