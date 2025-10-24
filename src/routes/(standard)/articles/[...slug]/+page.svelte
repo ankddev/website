@@ -14,7 +14,7 @@
 		animate(contentRef!, {
 			...fadeRight,
 			x: { from: '-1.25em', ease: 'outCirc' },
-			duration: 400
+			duration: 200
 		});
 	});
 </script>

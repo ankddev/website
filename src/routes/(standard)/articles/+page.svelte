@@ -16,7 +16,7 @@
 	$effect(() => {
 		animate([...postsRef, countRef], {
 			...fadeUp,
-			delay: (_, i) => i * 100
+			delay: (_, i) => i * 50
 		});
 	});
 

@@ -29,19 +29,19 @@
 		});
 		animate(skillsRef, {
 			...fadeUp,
-			delay: 150
+			delay: 50
 		});
 		animate(articlesRef, {
 			...fadeUp,
-			delay: 300
+			delay: 100
 		});
 		animate(projectsRef, {
 			...fadeUp,
-			delay: 450
+			delay: 150
 		});
 		animate(faqRef, {
 			...fadeUp,
-			delay: 600
+			delay: 200
 		});
 	});
 
