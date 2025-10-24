@@ -6,6 +6,7 @@
 	import Input from '@/lib/components/Input.svelte';
 	import type { Article } from '@/lib/types';
 	import { debounce } from '@/lib/utils/debounce';
+	import Link from '$components/Link.svelte';
 
 	let { data }: PageProps = $props();
 	let posts = $state<Article[] | null>(data.posts);
@@ -33,7 +34,7 @@
 </script>
 
 <main class="mt-10">
-	<div class="text-xs text-driftwood-900/50">Search posts or tags</div>
+	<div class="text-xs text-driftwood-900/50">Search posts or <Link href="/tags">tags</Link></div>
 	<Input
 		id="search"
 		bind:value={query}

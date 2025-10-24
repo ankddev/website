@@ -16,6 +16,10 @@
 			text: 'Articles'
 		},
 		{
+			href: '/tags',
+			text: 'Tags'
+		},
+		{
 			href: 'https://github.com/ankddev/dotfiles',
 			text: 'Dotfiles'
 		}

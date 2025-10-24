@@ -8,6 +8,21 @@
 		onmenu: () => void;
 	}
 	const { class: className = '', onmenu }: Props = $props();
+
+	const NAV_LINKS = [
+		{
+			href: '/articles',
+			text: 'Articles'
+		},
+		{
+			href: '/tags',
+			text: 'Tags'
+		},
+		{
+			href: 'https://github.com/ankddev/dotfiles',
+			text: 'Dotfiles'
+		}
+	];
 </script>
 
 <header class={['pr-2 xl:pr-0 flex items-center justify-between', className]}>
@@ -15,25 +30,19 @@
 	<div class="hidden sm:flex flex-col gap-1">
 		<nav>
 			<ul class="flex gap-5 justify-end items-center">
-				<li>
-					<Link class="relative" darker href="/articles">
-						Articles
-						<div
-							class="outer-icon absolute -top-0.55 -right-3 i-tabler-arrow-up-right text-xs"
-						></div>
-					</Link>
-				</li>
-				<li>
-					<Link class="relative" darker href="https://github.com/ankddev/dotfiles">
-						Dotfiles
-						<div
-							class="outer-icon absolute -top-0.55 -right-3 i-tabler-arrow-up-right text-xs"
-						></div>
-					</Link>
-				</li>
+				{#each NAV_LINKS as link (link)}
+					<li>
+						<Link class="relative" darker href={link.href}>
+							{link.text}
+							<div
+								class="outer-icon absolute -top-0.55 -right-3 i-tabler-arrow-up-right text-xs"
+							></div>
+						</Link>
+					</li>
+				{/each}
 			</ul>
 		</nav>
-		<div class="border-b-1 border-dashed border-driftwood-800/70"></div>
+		<div class="border-b border-dashed border-driftwood-800/70"></div>
 		<aside>
 			<ul class="flex text-xl gap-3 justify-end items-center">
 				{#each LINKS as link (link.link)}

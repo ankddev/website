@@ -7,6 +7,16 @@ export interface Article {
 	pinned: boolean;
 }
 
+export interface Tag {
+	name: string;
+	amount: number;
+}
+
+export interface TagsResponse {
+	amount: number;
+	tags: Tag[];
+}
+
 export interface ArticlesResponse {
 	amount: number;
 	articles: Article[];
