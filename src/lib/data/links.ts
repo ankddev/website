@@ -23,4 +23,10 @@ export const GITLAB: Link = {
 	icon_class: 'i-simple-icons-gitlab'
 };
 
-export const LINKS: Link[] = [DISCORD, GITHUB, GITLAB];
+export const STACKOVERFLOW: Link = {
+	title: 'StackOverflow',
+	link: 'https://stackoverflow.com/users/29685220/ankddev',
+	icon_class: 'i-simple-icons-stackoverflow'
+};
+
+export const LINKS: Link[] = [DISCORD, GITHUB, GITLAB, STACKOVERFLOW];
