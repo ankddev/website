@@ -49,7 +49,7 @@
 		{/if}
 	</div>
 
-	{#if posts == null || posts.length !== 0}
+	{#if posts != null && posts.length !== 0}
 		<div class="flex items-center gap-8 flex-wrap mt-4">
 			{#each posts as post, index (post.slug + index)}
 				<div id="post-{post}" class="opacity-0 w-full" bind:this={postsRef[index]}>
