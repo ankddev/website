@@ -26,7 +26,13 @@ export const GET: RequestHandler = async ({ url }) => {
 	const data = await getArticles();
 	let { articles } = data;
 
-	articles.sort(({ date: a }, { date: b }) => b.toLowerCase().localeCompare(a.toLowerCase()));
+	articles.sort((a, b) => {
+		// First, sort by pinned: pinned articles should come first
+		if (a.pinned && !b.pinned) return -1;
+		if (!a.pinned && b.pinned) return 1;
+		// If both have the same pinned status, sort by date descending (most recent first)
+		return b.date.toLowerCase().localeCompare(a.date.toLowerCase());
+	});
 
 	if (query) {
 		articles = articles.filter((item) => {

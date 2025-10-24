@@ -4,6 +4,7 @@ export interface Article {
 	description: string;
 	tags: string[];
 	date: string;
+	pinned: boolean;
 }
 
 export interface ArticlesResponse {

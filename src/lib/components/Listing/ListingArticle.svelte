@@ -9,7 +9,7 @@
 		children: Snippet;
 	}
 
-	const { slug: href, description, tags, date: rawDate, children }: Props = $props();
+	const { slug: href, description, tags, date: rawDate, pinned, children }: Props = $props();
 
 	const date = $derived(new Date(rawDate));
 	const formattedDate = $derived(
@@ -22,6 +22,7 @@
 </script>
 
 <div class="w-full block">
+	{#if pinned}<div title="Pinned" class="i-tabler-pin-filled"></div>{/if}
 	<a class="font-bold" {href}>{@render children()}</a>
 	<div class="text-driftwood-900">
 		{description}
