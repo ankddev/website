@@ -19,7 +19,8 @@ const SUPPORTED_LANGS = [
 	'svelte',
 	'zig',
 	'rust',
-	'css'
+	'css',
+	'python'
 ];
 
 const highlighter = await createHighlighter({
