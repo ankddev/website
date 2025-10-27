@@ -7,18 +7,21 @@ tags:
   - python
   - under the hood
 ---
+
 <script lang="ts">
-import ContentInformation from '$components/Content/ContentInformation.svelte';
-import ContentExcalidraw from '$components/Content/ContentExcalidraw.svelte';
-import ContentTabs from '$components/Content/ContentTabs.svelte';
-import ContentTab from '$components/Content/ContentTab.svelte';
+	import ContentInformation from '$components/Content/ContentInformation.svelte'; import
+	ContentExcalidraw from '$components/Content/ContentExcalidraw.svelte'; import ContentTabs from
+	'$components/Content/ContentTabs.svelte'; import ContentTab from
+	'$components/Content/ContentTab.svelte';
 </script>
 
 <ContentInformation title="Info">
-    All of the following information is current as of Python version 3.15 - latest version at the time of writing.
+	All of the following information is current as of Python version 3.15 - latest version at the time
+	of writing.
 </ContentInformation>
 
 # Introduction
+
 Hello! Currently I'm working on a big ptoject - Python interpreter. Before this,
 I need to investigate about how CPython - reference Python implementation - works.
 This article will tell you about this.
@@ -74,7 +77,7 @@ Python is **bytecode interpreter**.
 
 ## VMs
 
-*VM* stands for virtual machine. There are *register* and *stack* VMs. Python
+_VM_ stands for virtual machine. There are _register_ and _stack_ VMs. Python
 is **stack VM**.
 
 # Stages of interpretation
@@ -83,7 +86,7 @@ There are few stages of interpretation. Here's some info about them.
 
 ## Tokenization
 
-In this stage interpreter translates code string to *token stream*. You can
+In this stage interpreter translates code string to _token stream_. You can
 experiment with it via `tokenize` module. For example, this code:
 
 ```python
@@ -113,7 +116,7 @@ print NAME
  ENDMARKER
 ```
 
-Here, value in first column (e.g. `(` or `print`) is *token* and second value is *token name* (first line is just encoding).
+Here, value in first column (e.g. `(` or `print`) is _token_ and second value is _token name_ (first line is just encoding).
 
 ## Parsing
 
@@ -168,11 +171,11 @@ Module(
 )
 ```
 
-As you may see, AST builds from *nodes*, e.g. `Module` or `BinOp`.
+As you may see, AST builds from _nodes_, e.g. `Module` or `BinOp`.
 
 ## Transforming AST to bytecode
 
-The next stage is *transforming AST to bytecode*. It's very similiar to
+The next stage is _transforming AST to bytecode_. It's very similiar to
 compilation, but in our case it transforms to bytecode instead of machine code.
 For example, following code:
 
@@ -194,15 +197,15 @@ will print bytecode of `sum` lambda:
            10 RETURN_VALUE
 ```
 
-Fisrt column stands for line number. Second column is *byte offset within
-function's bytecode sequence* or *instruction address*. Third one is opcode
+Fisrt column stands for line number. Second column is _byte offset within
+function's bytecode sequence_ or _instruction address_. Third one is opcode
 name - the actual operation interpreter will perform. Fourth one is argument for
 opcode. And fifth one is that argument in human-readable form/
 
 # Typical CPython source code layout
 
 Okay, we've learned some theory about compilation. It's time to actually read
-code! In this diagram you can see, where things are *typically* located:
+code! In this diagram you can see, where things are _typically_ located:
 
 <ContentExcalidraw src="/articles/exploring-cpython-part-1/source-code-layout.svg" />
 
@@ -216,6 +219,7 @@ code! In this diagram you can see, where things are *typically* located:
 </ContentInformation>
 
 But there are some exceptions, for example:
+
 - Built-in type `int` is at `Objects/longobject.c`
 - Built-in type `str` is at `Objects/unicodeobject.c`
 - Built-in module `sys` is at `Python/sysmodule.c`
@@ -224,7 +228,7 @@ But there are some exceptions, for example:
 
 ---
 
-*to be continued*
+_to be continued_
 
 ---
 
