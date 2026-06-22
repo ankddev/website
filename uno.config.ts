@@ -1,6 +1,7 @@
 import {
   defineConfig,
   presetIcons,
+  presetWebFonts,
   presetWind4,
   transformerDirectives,
 } from "unocss";
@@ -53,6 +54,15 @@ export default defineConfig({
     }),
     presetIcons({
       warn: true,
+    }),
+    presetWebFonts({
+      fonts: {
+        sans: "Outfit",
+        mono: "Maple Mono",
+        lexend: "Lexend",
+        outfit: "Outfit",
+        maple: "Maple Mono",
+      },
     }),
   ],
   transformers: [transformerDirectives()],

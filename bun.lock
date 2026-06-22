@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "ankddev.github.io",
@@ -11,6 +12,7 @@
         "@iconify-json/tabler": "^1.2.35",
         "@unocss/astro": "^66.7.2",
         "@unocss/preset-icons": "^66.7.2",
+        "@unocss/preset-web-fonts": "^66.7.2",
         "@unocss/preset-wind4": "^66.7.2",
         "@unocss/reset": "^66.7.2",
         "unocss": "^66.7.2",

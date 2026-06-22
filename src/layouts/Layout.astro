@@ -1,12 +1,18 @@
+---
+type Props = {
+	title: string;
+	description: string;
+};
+let { title, description } = Astro.props;
+---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-base text-text">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="https://github.com/ankddev.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>/dev/ankddev: {title}</title>
   </head>
   <body>
     <slot />
@@ -19,7 +25,5 @@
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: theme("colors.base");
-    color: theme("colors.text");
   }
 </style>
