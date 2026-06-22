@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ankddev.vercel.app/sitemap.xml
