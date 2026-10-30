@@ -1,0 +1,324 @@
+:root {
+    /* Here mantle is used as bg, because otherwise it looks weird near footer */
+    @apply scrollbar-thumb-accent scrollbar-track-mantle;
+}
+
+* {
+    /* In all other places I want scrollbars with base as bg and accent as fg */
+    @apply scrollbar-thumb-accent scrollbar-track-base;
+}
+
+html, body {
+    /* Better behaviour when something is outside viewport */
+    @apply max-w-full overflow-x-auto;
+}
+
+body {
+    @apply grid-rows-[auto_1fr_auto] min-h-screen grid grid-cols-1 m-0 p-0;
+    @apply text-text bg-base accent-accent;
+    @apply font-[var(--font-fredoka)] text-left break-words text-[16px] md:text-[20px];
+
+    /* Font sizes */
+    --text-xs-fontSize: 0.75em;
+    --text-xs-lineHeight: calc(1 / 0.75);
+    --text-sm-fontSize: 0.875em;
+    --text-sm-lineHeight: calc(1.25 / 0.875);
+    --text-base-fontSize: 1em;
+    --text-base-lineHeight: calc(1.5 / 1);
+    --text-lg-fontSize: 1.125em;
+    --text-lg-lineHeight: calc(1.75 / 1.125);
+    --text-xl-fontSize: 1.25em;
+    --text-xl-lineHeight: calc(1.75 / 1.25);
+    --text-2xl-fontSize: 1.5em;
+    --text-2xl-lineHeight: calc(2 / 1.5);
+    --text-3xl-fontSize: 1.875em;
+    --text-3xl-lineHeight: calc(2.25 / 1.875);
+    --text-4xl-fontSize: 2.25em;
+    --text-4xl-lineHeight: calc(2.5 / 2.25);
+    --text-5xl-fontSize: 3em;
+    --text-5xl-lineHeight: 1;
+    --text-6xl-fontSize: 3.75em;
+    --text-6xl-lineHeight: 1;
+    --text-7xl-fontSize: 4.5em;
+    --text-7xl-lineHeight: 1;
+    --text-8xl-fontSize: 6em;
+    --text-8xl-lineHeight: 1;
+    --text-9xl-fontSize: 8em;
+    --text-9xl-lineHeight: 1;
+}
+
+main {
+    @apply mx-auto max-w-full min-w-0 w-[calc(100%-2em)] md:w-[calc(100%-8em)] pt-[0.5em] pb-[3em] flex-1;
+}
+
+body {
+    h1, h2, h3, h4, h5, h6 {
+        @apply m-[0_0_0.5rem_0] text-balance font-bold;
+    }
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+}
+
+strong,
+b {
+    @apply font-bold;
+}
+
+a {
+    @apply color-accent @hover:opacity-80 visited:color-accent @hover:visited:opacity-80;
+}
+
+p {
+    @apply mb-[1em];
+}
+
+.prose p {
+    @apply mb-[2em];
+}
+
+img {
+    @apply max-w-full h-auto rounded-lg;
+}
+
+mark {
+    @apply bg-accent text-base rounded-md p-[2px_5px];
+}
+
+kbd {
+    @apply rounded-md p-[2px_5px] b-[1px] b-accent bg-mantle !font-[var(--font-fredoka)];
+}
+
+code {
+    @apply bg-mantle !font-[var(--font-maple-mono)];
+
+    /* Inline code */
+    &:not(pre *) {
+        @apply p-[2px_5px] rounded-md;
+    }
+}
+
+pre {
+    @apply !bg-mantle py-[1em] my-[0.5em] overflow-x-auto max-w-full rounded-lg;
+    /* Codeblocks have mantle as bg, so scrollbar should have same */
+    @apply scrollbar-thumb-accent scrollbar-track-mantle;
+
+    & > code {
+        @apply block min-w-full w-fit;
+    }
+
+    &.has-focused {
+        .line:not(.focused) {
+            @apply blur-[4px] transition-[filter] duration-200;
+        }
+
+        &:hover .line:not(.focused) {
+            @apply blur-none;
+        }
+    }
+
+    .line-number {
+        @apply inline-block mr-[1em] text-right w-[3ch] select-none opacity-50 @hover:(text-accent opacity-100);
+    }
+
+    .line {
+        @apply inline-block w-full px-[1em];
+
+        &.diff {
+            &.add {
+                @apply bg-green/25;
+            }
+
+            &.remove {
+                @apply bg-red/25;
+            }
+        }
+
+        &.highlighted {
+            @apply bg-text/10;
+        }
+    }
+}
+
+/* todo) maybe better way to have scrollbar on large tables? */
+.table-wrapper {
+    @apply w-full max-w-full overflow-x-auto my-[1.5em];
+
+    & > table {
+        @apply my-0;
+    }
+}
+
+table {
+    @apply min-w-full w-fit max-w-full my-[1.5em] text-sm border-collapse;
+}
+
+td, th {
+    @apply not-last:b-r-2 p-2 b-overlay2;
+    /* todo) have better criteria for breaking into lines */
+    @apply min-w-[10ch] max-w-[35ch];
+}
+
+th {
+    @apply font-bold;
+}
+
+tr {
+    @apply b-b-2 b-overlay2;
+}
+
+blockquote {
+    /* todo) mantle as bg? */
+    @apply b-l-[4px] b-l-solid b-accent b-rounded pl-[20px] m-0;
+}
+
+hr {
+    @apply b-none overflow-visible my-[1.5em] flex items-center justify-center;
+
+    &::after {
+        /* Really liked this divider in matklad's blog */
+        @apply content-["❧"] color-accent;
+    }
+}
+
+.footnotes::before {
+    /* Insert something like <hr> before footnotes section */
+    @apply content-["❧"] color-accent mt-[1.5em] flex items-center justify-center;
+}
+
+/* todo) better lists styling? */
+
+main {
+    ul, ol {
+        @apply my-[1.25em] pl-[1.5em] space-y-[0.5em];
+    }
+
+    ul {
+        @apply list-disc;
+
+        &.contains-task-list {
+            @apply list-none pl-[0.25em];
+        }
+    }
+
+    ol {
+        @apply list-decimal;
+    }
+
+    li {
+        &::marker {
+            @apply text-accent font-bold;
+        }
+
+        &.task-list-item {
+            @apply flex items-baseline gap-[0.4em] list-none;
+
+            input[type="checkbox"] {
+                @apply m-0 shrink-0;
+            }
+        }
+    }
+
+    ul ul,
+    ol ul,
+    ul ol,
+    ol ol {
+        @apply my-[0.5em];
+    }
+}
+
+abbr[title] {
+    @apply underline decoration-dotted cursor-help relative;
+
+    &:hover::after,
+    &:focus::after {
+        content: " (" attr(title) ")";
+        @apply text-subtext0;
+    }
+}
+
+/* Alerts (these are not all of types that plugin supports, see original css file for exhauting list) */
+
+.markdown-alert {
+    @apply b-0 b-l-[4px] b-solid b-[var(--markdown-alert-color)] b-rounded pl-[20px] my-[1em];
+}
+
+.markdown-alert-title {
+    @apply flex items-center gap-[0.5em] font-bold color-[var(--markdown-alert-color)] mb-[0.2em];
+}
+
+[data-alert="note"] {
+    --markdown-alert-color: theme('colors.blue');
+}
+
+[data-alert="tip"] {
+    --markdown-alert-color: theme('colors.green');
+}
+
+[data-alert="todo"] {
+    --markdown-alert-color: theme('colors.sapphire');
+}
+
+[data-alert="important"] {
+    --markdown-alert-color: theme('colors.mauve');
+}
+
+[data-alert="warning"] {
+    --markdown-alert-color: theme('colors.peach');
+}
+
+[data-alert="caution"] {
+    --markdown-alert-color: theme('colors.red');
+}
+
+[data-alert="example"] {
+    --markdown-alert-color: theme('colors.maroon');
+}
+
+/* todo) do i nedd this label visible? */
+/* #footnote-label { */
+    /* @apply not-sr-only; */
+/* } */
+
+/* todo) styling for excalidraw diagrams */
+/* .excalidraw-diagram svg { */
+  /* [stroke="#1e1e1e"] { */
+    /* stroke: var(--color-text, #cdd6f4); */
+  /* } */
+  /* [fill="#1e1e1e"] { */
+    /* fill: var(--color-text, #cdd6f4); */
+  /* } */
+
+  /* [fill="#ffffff"] { */
+    /* fill: var(--color-surface, #1e1e2e); */
+  /* } */
+
+  /* [stroke="#e03131"] { stroke: var(--color-red, #f38ba8); }    /* Red */ */
+  /* [stroke="#2f9e44"] { stroke: var(--color-green, #a6e3a1); }  /* Green */ */
+  /* [stroke="#1971c2"] { stroke: var(--color-blue, #89b4fa); }   /* Blue */ */
+  /* [stroke="#f08c00"] { stroke: var(--color-yellow, #f9e2af); } /* Orange/Yellow */ */
+  /* [stroke="#6741d9"] { stroke: var(--color-purple, #cba6f7); } /* Purple */ */
+
+  /* [fill="#ffc9c9"] { fill: color-mix(in srgb, var(--color-red, #f38ba8) 20%, transparent); } */
+  /* [fill="#b2f2bb"] { fill: color-mix(in srgb, var(--color-green, #a6e3a1) 20%, transparent); } */
+  /* [fill="#a5d8ff"] { fill: color-mix(in srgb, var(--color-blue, #89b4fa) 20%, transparent); } */
+  /* [fill="#ffec99"] { fill: color-mix(in srgb, var(--color-yellow, #f9e2af) 20%, transparent); } */
+/* } */
+

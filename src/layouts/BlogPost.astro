@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, minutesRead } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+    <slot name="head" slot="head" />
+    <article class="min-w-0 w-full m-auto">
+        <div>
+            <div class="text-subtext0 text-sm flex flex-wrap gap-x-4 overflow-hidden *:not-first:relative *:not-first:before:content-['•'] *:not-first:before:absolute *:not-first:before:-left-2.5 *:not-first:before:pointer-events-none">
+                <FormattedDate date={pubDate} />
+                {updatedDate && (
+                    <div>
+                        Last updated on{" "}
+                        <FormattedDate date={updatedDate} />
+                    </div>
+                )}
+                {minutesRead && (
+                    <div>
+                        {minutesRead} min
+                    </div>
+                )}
+            </div>
+            <h1>{title}</h1>
+            <div class="text-subtext0">
+                {description}
+            </div>
+            <hr class="my-[1em]" />
+        </div>
+        <slot />
+    </article>
+</BaseLayout>
