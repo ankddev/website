@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+    <slot name="head" slot="head" />
+    <!-- <article class="min-w-0 w-full"> -->
+        <!-- <div class="m-auto p-[1em] color-text"> -->
+            <!-- <div class="mb-[1em] p-[1em_0] text-center leading-1"> -->
+                <!-- <div class="mb-[0.5em] color-accent"> -->
+                    <!-- <FormattedDate date={pubDate} /> -->
+                    <!-- {updatedDate && ( -->
+                        <!-- <div class="italic"> -->
+                            <!-- Last updated on{" "} -->
+                            <!-- <FormattedDate date={updatedDate} /> -->
+                        <!-- </div> -->
+                    <!-- )} -->
+                <!-- </div> -->
+                <!-- <h1 class="m-[0_0_0.5em_0]">{title}</h1> -->
+                <!-- <hr /> -->
+            <!-- </div> -->
+            <!-- <slot /> -->
+        <!-- </div> -->
+    <!-- </article> -->
+    <article class="min-w-0 w-full m-auto p-[1em]">
+        <div>
+            <h1>{title}</h1>
+            <div class="text-subtext0">
+                <div>
+                    {description}
+                </div>
+                <div class="italic">
+                    Published on{" "}
+                    <FormattedDate date={pubDate} />
+                    {updatedDate && (
+                        <>
+                            , last updated on{" "}
+                            <FormattedDate date={pubDate} />
+                        </>
+                    )}
+                </div>
+            </div>
+            <hr class="b-dashed b-accent my-[1em]" />
+        </div>
+        <slot />
+    </article>
+</BaseLayout>

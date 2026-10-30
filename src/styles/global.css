@@ -1,0 +1,241 @@
+:root {
+    /* Here mantle is used as bg, because otherwise it looks weird near footer */
+    @apply scrollbar-thumb-accent scrollbar-track-mantle;
+}
+
+* {
+    /* In all other places I want scrollbars with base as bg and accent as fg */
+    @apply scrollbar-thumb-accent scrollbar-track-base;
+}
+
+html, body {
+    @apply max-w-full overflow-x-auto;
+}
+
+body {
+    @apply font-[var(--font-fredoka)] bg-base break-words grid-rows-[auto_1fr_auto] min-h-screen grid grid-cols-1 m-0 p-0 text-left text-[16px] text-text md:text-[20px] accent-accent;
+
+    /* Font sizes */
+    --text-xs-fontSize: 0.75em;
+    --text-xs-lineHeight: calc(1 / 0.75);
+    --text-sm-fontSize: 0.875em;
+    --text-sm-lineHeight: calc(1.25 / 0.875);
+    --text-base-fontSize: 1em;
+    --text-base-lineHeight: calc(1.5 / 1);
+    --text-lg-fontSize: 1.125em;
+    --text-lg-lineHeight: calc(1.75 / 1.125);
+    --text-xl-fontSize: 1.25em;
+    --text-xl-lineHeight: calc(1.75 / 1.25);
+    --text-2xl-fontSize: 1.5em;
+    --text-2xl-lineHeight: calc(2 / 1.5);
+    --text-3xl-fontSize: 1.875em;
+    --text-3xl-lineHeight: calc(2.25 / 1.875);
+    --text-4xl-fontSize: 2.25em;
+    --text-4xl-lineHeight: calc(2.5 / 2.25);
+    --text-5xl-fontSize: 3em;
+    --text-5xl-lineHeight: 1;
+    --text-6xl-fontSize: 3.75em;
+    --text-6xl-lineHeight: 1;
+    --text-7xl-fontSize: 4.5em;
+    --text-7xl-lineHeight: 1;
+    --text-8xl-fontSize: 6em;
+    --text-8xl-lineHeight: 1;
+    --text-9xl-fontSize: 8em;
+    --text-9xl-lineHeight: 1;
+}
+
+main {
+    @apply m-auto w-full max-w-full min-w-0 md:w-[calc(100%-10em)] p-[3em_1em] flex-1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply m-[0_0_0.5rem_0] text-balance font-[var(--font-fredoka)];
+}
+
+/* todo) i enumerated bold font in each one because i'm not sure about weight for all of them and because i needed important if applying globally */
+body h1 {
+    @apply text-4xl font-bold;
+}
+body h2 {
+    @apply text-3xl font-bold;
+}
+body h3 {
+    @apply text-2xl font-bold;
+}
+body h4 {
+    @apply text-xl font-bold;
+}
+body h5 {
+    @apply text-lg font-bold;
+}
+body h6 {
+    @apply font-bold;
+}
+
+strong,
+b {
+    @apply font-bold;
+}
+
+a {
+    @apply color-accent @hover:opacity-80 visited:color-accent @hover:visited:opacity-80;
+}
+
+p {
+    @apply mb-[1em];
+}
+
+.prose p {
+    @apply mb-[2em];
+}
+
+textarea {
+    @apply text-[1em] w-full;
+}
+
+input {
+    @apply text-[1em];
+}
+
+table {
+    @apply w-full;
+}
+
+img {
+    @apply max-w-full h-auto rounded-lg /* 8px */;
+}
+
+code {
+    @apply bg-mantle !font-[var(--font-maple-mono)];
+}
+
+code:not(pre *) {
+    @apply p-[2px_5px] rounded-md;
+}
+
+kbd {
+    @apply bg-mantle rounded-md p-[2px_5px] b-[1px] b-accent !font-[var(--font-fredoka)];
+}
+
+pre {
+    @apply !bg-mantle py-[1em] my-[0.5em] overflow-x-auto max-w-full rounded-lg;
+    /* pre's have mantle as bg, so scrollbar should have same */
+    @apply scrollbar-thumb-accent scrollbar-track-mantle;
+}
+
+pre > code {
+    @apply block min-w-full w-fit;
+}
+
+pre .line {
+    @apply inline-block w-full px-[1em];
+}
+
+pre .line-number {
+    @apply mr-[1em] select-none opacity-50 @hover:text-accent @hover:opacity-100 inline-block text-right w-[3ch];
+}
+
+pre .line.diff.add {
+    @apply bg-green/25;
+}
+
+pre .line.diff.remove {
+    @apply bg-red/25;
+}
+
+pre .line.highlighted {
+    @apply bg-surface0;
+}
+
+pre.has-focused {
+    & :not(.focused).line {
+        @apply blur-[4px];
+    }
+
+    &:hover :not(.focused).line {
+        @apply blur-none;
+    }
+}
+
+div.table-wrapper {
+    @apply w-full max-w-full overflow-x-auto my-6;
+}
+
+div.table-wrapper > table {
+    @apply my-0;
+}
+
+table {
+    @apply min-w-full text-sm my-6 border-collapse w-fit max-w-full;
+}
+
+td, th {
+    @apply not-last:border-r-2 p-2 border-accent/50;
+    /* todo) have better criteria for breaking into lines */
+    @apply min-w-[10ch] max-w-[35ch];
+}
+
+th {
+    @apply font-bold;
+}
+
+tr {
+    @apply border-b-2 border-accent/50;
+}
+
+blockquote {
+    @apply border-l-[4px] border-l-solid border-l-accent pl-[20px] m-0;
+}
+
+hr {
+    @apply border-none border-t-[1px] border-t-solid border-t-accent;
+}
+
+/* todo) better lists styling */
+
+main ul,
+main ol {
+  @apply my-[1.25em] pl-[1.5em] space-y-[0.5em];
+}
+
+main ul {
+  @apply list-disc;
+}
+
+main ol {
+  @apply list-decimal;
+}
+
+main li::marker {
+  @apply text-accent font-bold;
+}
+
+main ul ul,
+main ol ul,
+main ul ol,
+main ol ol {
+  @apply my-[0.5em];
+}
+
+main ul ul {
+    @apply list-circle;
+    /* list-style-type: circle; */
+    /* list-style-image: icon('i-tabler-brand-github'); */
+}
+
+main ul ul ul {
+    @apply list-square;
+    /* list-style-type: square; */
+}
+
+main ul.contains-task-list {
+    @apply list-none pl-[0.25em];
+}
+
+main li.task-list-item input[type="checkbox"] {
+    @apply mr-[0.5em] accent-accent align-middle;
+}
+
+mark {
+    @apply bg-accent text-base rounded-md p-[2px_5px];
+}

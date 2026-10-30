@@ -1,0 +1,23 @@
+<div
+  class="hidden supports-[animation-timeline:scroll()]:motion-safe:block fixed top-[4px] inset-x-[6px] h-[4px] z-9999 rounded-full overflow-hidden pointer-events-none"
+  aria-hidden="true"
+>
+  <div class="scroller w-full h-full bg-accent rounded-full"></div>
+</div>
+
+<style>
+  .scroller {
+    transform: translateX(-100%);
+    animation: fill-progress linear forwards;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes fill-progress {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+</style>

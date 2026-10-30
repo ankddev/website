@@ -1,0 +1,40 @@
+---
+import { SITE_TITLE, SOCIAL_LINKS, INTERNAL_LINKS } from "../consts";
+---
+
+<!-- todo) use darker bg (mantle/crust) for navbar? -->
+<header class="p-[1em]">
+    <nav class="flex flex-col sm:flex-row items-center justify-between text-[1em] font-bold">
+        <!-- todo) better logo -->
+        <h2 class="p-[2px_5px] m-0 text-[1em] font-bold bg-accent rounded-md">
+            <a class="!color-base !@hover:opacity-90" href="/" title="Take me home!">{SITE_TITLE}</a>
+        </h2>
+        <ul class="flex flex-wrap justify-center">
+            {INTERNAL_LINKS.map((link) => {
+                return (
+                    <li>
+                        <a href={link.link} title={link.alt}>{link.name}</a>
+                    </li>
+                );
+            })}
+        </ul>
+        <ul class="hidden md:flex">
+            {SOCIAL_LINKS.map((link) => {
+                return (
+                    <li>
+                        <a href={link.link} title={link.alt} target="_blank">
+                            <span class="sr-only">{link.alt}</span>
+                            <span class={link.icon} />
+                        </a>
+                    </li>
+                );
+            })}
+        </ul>
+    </nav>
+</header>
+
+<style>
+    li a {
+        @apply color-text m-[1em_0.5em] @hover:color-accent
+    }
+</style>

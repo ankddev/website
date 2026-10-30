@@ -1,0 +1,48 @@
+---
+import { FOOTER_LINKS, SOCIAL_LINKS } from "../consts";
+const today = new Date();
+---
+
+<footer class="py-[1em] md:px-[1em] bg-mantle mt-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-[1em] font-bold">
+        <!-- todo) better display links. i don't really like how it works
+because 0. it's long enough, maybe split to 2 colums? 1. it looks a bit ugly
+when it spreads items on large screens (namely, it still aligns on left and
+social icons are on the center vertically) -->
+        <ul class="flex flex-wrap justify-center md:justify-start md:pr-[1em]">
+            {FOOTER_LINKS.map((link) => {
+                return (
+                    <li>
+                        <a href={link.link} title={link.alt}>{link.name}</a>
+                    </li>
+                );
+            })}
+        </ul>
+        <!-- hack) font size is xl on small displays here so that icons are
+still have meaningful size (they are too small otherwise) -->
+        <ul class="flex flex-wrap justify-center md:justify-end md:self-start text-xl md:text-[1em]">
+            {SOCIAL_LINKS.map((link) => {
+                return (
+                    <li>
+                        <a href={link.link} title={link.alt} target="_blank">
+                            <span class="sr-only">{link.alt}</span>
+                            <span class={link.icon} />
+                        </a>
+                    </li>
+                );
+            })}
+        </ul>
+    </div>
+    <p class="color-subtext0 text-xs text-center">
+        &copy; {today.getFullYear()} Andrey Kozhev
+    </p>
+
+</footer>
+
+<style>
+    /* todo) maybe just enumerate classes directly, since it'd be used in 2
+places only */
+    li a {
+        @apply color-text @hover:color-accent m-[1em_0.5em]
+    }
+</style>
