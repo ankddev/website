@@ -1,0 +1,41 @@
+---
+import { SOCIAL_LINKS } from "../consts";
+const today = new Date();
+---
+
+<footer>
+    &copy; {today.getFullYear()} Your name here. All rights reserved.
+    <div class="social-links">
+        {SOCIAL_LINKS.map((link) => {
+            return (
+                <a href={link.link} title={link.alt} target="_blank">
+                    <span class="sr-only">{link.alt}</span>
+                    <div class={link.icon} />
+                </a>
+            );
+        })}
+    </div>
+</footer>
+<style>
+    footer {
+        padding: 2em 1em;
+        /*padding-bottom: 1em;*/
+        /*background: theme("colors.mantle");*/
+        color: theme("colors.text");
+        text-align: center;
+        margin-top: auto;
+    }
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 1em;
+    }
+    .social-links a {
+        text-decoration: none;
+        color: theme("colors.text");
+    }
+    .social-links a:hover {
+        color: theme("colors.accent");
+    }
+</style>

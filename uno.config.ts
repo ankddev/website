@@ -1,78 +1,71 @@
-import {
-	defineConfig,
-	presetIcons,
-	presetMini,
-	transformerDirectives,
-	type UserConfig
-} from 'unocss';
-
-import { LINKS } from './src/lib/data/links';
-
-const CUSTOM_COLORS = {
-	// Primarly used for foregrounds
-	driftwood: {
-		'50': '#f9f5ed',
-		'100': '#efe7d2',
-		'200': '#e1cda7',
-		'300': '#d0ad74',
-		'400': '#c1904e',
-		'500': '#b88142',
-		'600': '#996335',
-		'700': '#7b4a2d',
-		'800': '#683d2b',
-		'900': '#5a3529',
-		'950': '#331b15'
-	},
-
-	// Primarly used for backgrounds
-	frangipani: {
-		'50': '#fff7ed',
-		'100': '#ffedd5',
-		'200': '#ffdbb3',
-		'300': '#ffb972',
-		'400': '#fd903a',
-		'500': '#fc7113',
-		'600': '#ed5509',
-		'700': '#c43e0a',
-		'800': '#9c3210',
-		'900': '#7d2b11',
-		'950': '#441306'
-	}
-};
-
-let safelist: string[] = [];
-// links icon classes
-safelist = [...safelist, ...LINKS.map((link) => link.icon_class)];
+import presetIcons from "@unocss/preset-icons";
+import presetWind4 from "@unocss/preset-wind4";
+import transformerDirectives from "@unocss/transformer-directives";
+import { defineConfig } from "unocss";
+import { SOCIAL_LINKS } from "./src/consts";
 
 export default defineConfig({
-	theme: {
-		colors: {
-			...CUSTOM_COLORS,
-			brand: {
-				foreground: CUSTOM_COLORS.driftwood['950'],
-				surface: CUSTOM_COLORS.frangipani['50']
-			}
-		}
-	},
-	presets: [
-		presetMini(),
-		presetIcons({
-			warn: true,
-			extraProperties: {
+  theme: {
+    colors: {
+			// Catppuccin Mocha colors
+			rosewater: "#f5e0dc",
+			flamingo: "#f2cdcd",
+			pink: "#f5c2e7",
+			mauve: "#cba6f7",
+			red: "#f38ba8",
+			maroon: "#eba0ac",
+			peach: "#fab387",
+			yellow: "#f9e2af",
+			green: "#a6e3a1",
+			teal: "#94e2d5",
+			sky: "#89dceb",
+			sapphire: "#74c7ec",
+			blue: "#89b4fa",
+			lavender: "#b4befe",
+			text: "#cdd6f4",
+			subtext1: "#bac2de",
+			subtext0: "#a6adc8",
+			overlay2: "#9399b2",
+			overlay1: "#7f849c",
+			overlay0: "#6c7086",
+			surface2: "#585b70",
+			surface1: "#45475a",
+			surface0: "#313244",
+			base: "#1e1e2e",
+			mantle: "#181825",
+			crust: "#11111b",
+		},
+  },
+  safelist: [
+    // Icons used for social links
+    () => SOCIAL_LINKS.map((link) => link.icon)
+  ],
+  presets: [
+    presetIcons({
+      warn: true,
+   	  extraProperties: {
 				display: 'inline-block',
 				'vertical-align': 'middle'
 			}
-		})
-	],
-	transformers: [transformerDirectives()],
-	safelist: safelist
-}) as UserConfig<{
-	colors: {
-		frangipani: Record<`${number}`, string>;
-		driftwood: Record<`${number}`, string>;
-		brand: {
-			foreground: string;
-			surface: string;
-		};
-	};
-}>;
+    }),
+    presetWind4({
+      // preflights: {
+      //   reset: false
+      // }
+    }),
+  ],
+  // Extend theme with special role colors
+  extendTheme: (theme) => {
+    return {
+      ...theme,
+      colors: {
+        ...theme.colors,
+  			// todo) decide on accent
+        accent: theme.colors.lavender,
+      },
+    }
+  },
+  transformers: [
+    transformerDirectives(),
+  ],
+});

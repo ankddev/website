@@ -1,117 +1,63 @@
-# /dev/ankddev
+# Astro Starter Kit: Blog
 
-[ankddev](https://github.com/ankddev)'s personal site, blog and portfolio.
-
-## Getting Started
-
-### Prerequisites
-
-- [Bun](https://bun.sh/) (recommended) or Node.js 18+
-- Git
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ankddev/website
-cd website
+```sh
+deno create astro@latest -- --template blog
 ```
 
-2. Install dependencies:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-bun install
+Features:
+
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and Open Graph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-3. Start the development server:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```bash
-bun run dev
-```
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-4. Open your browser and navigate to `http://localhost:5173`
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-### Available Scripts
+Any static assets, like images, can be placed in the `public/` directory.
 
-- `bun run dev` - Start development server
-- `bun run build` - Build for production
-- `bun run preview` - Preview production build locally
-- `bun run check` - Run type checking and linting
-- `bun run check:watch` - Run type checking and linting in background
-- `bun run format` - Format with Prettier
-- `bun run lint` - Check formatting and linting
+## 🧞 Commands
 
-## Writing Articles
+All commands are run from the root of the project, from a terminal:
 
-Articles are written in MDX format and stored in the `content/articles/` directory. Each article should include frontmatter with metadata:
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `deno install`             | Installs dependencies                            |
+| `deno dev`             | Starts local dev server at `localhost:4321`      |
+| `deno build`           | Build your production site to `./dist/`          |
+| `deno preview`         | Preview your build locally, before deploying     |
+| `deno astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `deno astro -- --help` | Get help using the Astro CLI                     |
 
-```mdx
----
-title: Your Article Title
-description: Brief description of the article
-date: 2024-01-15
-tags:
-  - tag1
-  - tag2
-pinned: false
----
+## 👀 Want to learn more?
 
-Your article content here with support for:
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-- Markdown syntax
-- Embedded Svelte components
-- Code blocks with syntax highlighting
-```
+## Credit
 
-### Code Highlighting
-
-The project uses Shiki for syntax highlighting with custom transformer:
-
-- Focus notation: `// [!code focus]`
-
-## Styling
-
-The project uses UnoCSS with:
-
-- Custom presets for icons and styling
-- CSS variables for theming
-- Responsive design utilities
-- Variable fonts
-
-## Configuration
-
-Key configuration files:
-
-- `svelte.config.js` - SvelteKit and MDsveX configuration
-- `uno.config.ts` - UnoCSS configuration
-- `vite.config.ts` - Vite build configuration
-- `tsconfig.json` - TypeScript configuration
-
-## Deployment
-
-The site is automatically deployed to Vercel on push to the main branch. The deployment configuration is handled by the Vercel adapter in `svelte.config.js`.
-
-## Manual Deployment
-
-To deploy manually:
-
-```bash
-# Build the project:
-bun run build
-# Deploy to Vercel:
-vercel --prod
-```
-
-## Contributing
-
-While this is a personal website and blog, suggestions and bug reports are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is available under the [MIT License](LICENSE).
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
