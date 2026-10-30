@@ -1,8 +1,0 @@
-/* Stylesheet for main content */
-
-.content {
-	ol + p,
-	ul + p {
-		--at-apply: mt-4;
-	}
-}
